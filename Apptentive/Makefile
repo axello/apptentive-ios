@@ -9,7 +9,7 @@
 
 PROJECT = "Apptentive"
 
-all : framework
+all : zip
 
 # iOS simulators
 ios : Apptentive.xcodeproj
@@ -33,7 +33,13 @@ simulator : Apptentive.xcodeproj
 
 # create the XCFramework itself.
 framework : ios simulator
+	rm -r "$(PROJECT).xcframework"
 	xcodebuild -create-xcframework \
 		-framework "archives/$(PROJECT)-iOS.xcarchive/Products/Library/Frameworks/$(PROJECT).framework" \
 		-framework "archives/$(PROJECT)-iOS-simulator.xcarchive/Products/Library/Frameworks/$(PROJECT).framework" \
 		-output "$(PROJECT).xcframework"
+
+zip : framework
+	zip -r -X ../$(PROJECT).xcframework.zip $(PROJECT).xcframework
+	swift package compute-checksum ../$(PROJECT).xcframework.zip
+	

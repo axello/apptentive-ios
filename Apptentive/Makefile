@@ -43,3 +43,5 @@ zip : framework
 	zip -r -X ../$(PROJECT).xcframework.zip $(PROJECT).xcframework
 	swift package compute-checksum ../$(PROJECT).xcframework.zip
 	
+manifest : Package.swift
+	

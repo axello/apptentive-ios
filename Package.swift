@@ -16,7 +16,7 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "Apptentive",
-            url: "https://github.com/axello/apptentive-ios/raw/master/releases/download/5.3.6/Apptentive.xcframework.zip",
+            url: "https://github.com/axello/apptentive-ios/raw/master/releases/download/Apptentive.xcframework.zip",
             checksum: "3aa2d5dab2d7d9e3be62d810452bef930be5817708de9498fb8140e4046d3db1"
         )
     ]
